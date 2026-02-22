@@ -1,0 +1,377 @@
+---
+
+# Health Guard App – Setup Guide
+
+Full-stack Hospital Appointment System using:
+
+* React (Frontend)
+* Node.js + Express (Backend)
+* Firebase Authentication
+* Firestore Database
+* Cloudinary (Image Upload)
+
+---
+
+# 1. Project Structure
+
+```
+health-guard-app
+│
+├── client        → React frontend
+│
+└── server        → Node backend
+```
+
+---
+
+# 2. Required Software
+
+Install:
+
+### 1. Node.js
+
+Download and install:
+
+```
+https://nodejs.org
+```
+
+Check installation:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+# 3. Clone Project
+
+```bash
+git clone https://github.com/nithiya1710-sri/health-guard-app.git
+
+cd health-guard-app
+```
+
+---
+
+# 4. Frontend Setup (React)
+
+## Go to client folder
+
+```bash
+cd client
+```
+
+## Install packages
+
+```bash
+npm install
+```
+
+### Required packages
+
+If missing install manually:
+
+```bash
+npm install axios
+npm install firebase
+npm install react-router-dom
+```
+
+Firebase Web SDK is installed via npm for web apps. ([Firebase][1])
+
+---
+
+# 5. Backend Setup (Node)
+
+## Go to server folder
+
+```bash
+cd ../server
+```
+
+## Install packages
+
+```bash
+npm install
+```
+
+### Required packages
+
+If needed:
+
+```bash
+npm install express
+npm install cors
+npm install dotenv
+npm install firebase-admin
+npm install multer
+npm install cloudinary
+npm install axios
+```
+
+Firebase Admin SDK is required for server authentication and database access. ([Firebase][2])
+
+---
+
+# 6. Firebase Setup
+
+## Step 1 – Create Firebase Project
+
+Go to:
+
+```
+Firebase Console
+```
+
+Create project.
+
+Enable:
+
+* Authentication → Email/Password
+* Authentication → Google
+* Firestore Database
+
+---
+
+# 7. Firebase Client Config
+
+Location:
+
+```
+client/src/services/firebase.js
+```
+
+Example:
+
+```js
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+
+const firebaseConfig = {
+
+apiKey: "YOUR_KEY",
+authDomain: "YOUR_DOMAIN",
+projectId: "YOUR_PROJECT_ID",
+storageBucket: "YOUR_BUCKET",
+messagingSenderId: "YOUR_ID",
+appId: "YOUR_APP_ID"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
+```
+
+---
+
+# 8. serviceAccount.js Setup (IMPORTANT)
+
+## Step 1 – Download Service Account File
+
+Firebase Console →
+
+```
+Project Settings
+```
+
+→
+
+```
+Service Accounts
+```
+
+→
+
+```
+Generate New Private Key
+```
+
+Download JSON file.
+
+This JSON file contains credentials used by the server to access Firebase. ([Stack Overflow][3])
+
+---
+
+## Step 2 – Save File
+
+Save file in:
+
+```
+server/serviceAccount.js
+```
+
+OR
+
+```
+server/serviceAccountKey.json
+```
+
+Recommended structure:
+
+```
+server
+│
+├── serviceAccountKey.json
+├── index.js
+├── routes
+└── package.json
+```
+
+---
+
+# 9. serviceAccount.js Example
+
+Location:
+
+```
+server/serviceAccount.js
+```
+
+```
+const serviceAccount = require("./serviceAccountKey.json");
+
+module.exports = serviceAccount;
+```
+
+---
+
+# 10. Firebase Admin Initialization
+
+Location:
+
+```
+server/index.js
+```
+
+Example:
+
+```js
+const admin = require("firebase-admin");
+
+const serviceAccount = require("./serviceAccount");
+
+admin.initializeApp({
+credential: admin.credential.cert(serviceAccount)
+});
+```
+
+Firebase Admin SDK must be initialized using the service account credentials. ([Stack Overflow][4])
+
+---
+
+# 11. Environment File (.env)
+
+Location:
+
+```
+server/.env
+```
+
+Example:
+
+```
+PORT=5000
+
+CLOUDINARY_NAME=xxxx
+CLOUDINARY_KEY=xxxx
+CLOUDINARY_SECRET=xxxx
+```
+
+---
+
+# 12. Start Backend
+
+Inside server folder:
+
+```bash
+npm start
+```
+
+OR
+
+```bash
+node index.js
+```
+
+Server runs on:
+
+```
+http://localhost:5000
+```
+
+---
+
+# 13. Start Frontend
+
+Open new terminal:
+
+```bash
+cd client
+npm start
+```
+
+Runs on:
+
+```
+http://localhost:3000
+```
+
+---
+
+# 14. Add serviceAccountKey.json to Git Ignore
+
+Create or edit:
+
+```
+server/.gitignore
+```
+
+Add:
+
+```
+serviceAccountKey.json
+.env
+```
+
+Service account keys should not be uploaded publicly. ([Medium][5])
+
+---
+
+# 15. Full Installation Commands
+
+Run step-by-step:
+
+```
+git clone https://github.com/nithiya1710-sri/health-guard-app.git
+
+cd health-guard-app
+
+cd client
+npm install
+
+cd ../server
+npm install
+
+npm start
+```
+
+New terminal:
+
+```
+cd client
+npm start
+```
+
+---
+
+# 16. Default Ports
+
+| Service | Port |
+| ------- | ---- |
+| React   | 3000 |
+| Node    | 5000 |
+
+---
