@@ -1,0 +1,183 @@
+.appointments-page {
+  padding: 2rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #f8fafc 0%, #f0f7ff 100%);
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* Action bar with Book Now button */
+.action-bar {
+  margin: 1.5rem 0 2.5rem;
+  text-align: center;
+}
+
+.action-bar.center {
+  margin-top: 6rem;
+}
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.btn-primary.large {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.25rem;
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  padding: 6rem 1rem;
+  font-size: 1.3rem;
+  color: #64748b;
+}
+
+/* Cards grid and card styles (same as previous suggestion) */
+.appointments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.appointment-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.appointment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.hospital-name {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.status-badge {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.status-badge.upcoming { background: #dbeafe; color: #2563eb; }
+.status-badge.completed { background: #dcfce7; color: #15803d; }
+.status-badge.cancelled { background: #fee2e2; color: #dc2626; }
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+  font-size: 1rem;
+}
+
+.label { color: #64748b; font-weight: 500; }
+.value { font-weight: 600; color: #1e293b; }
+
+.card-actions {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.btn-secondary {
+  background: #6b7280;
+  color: white;
+}
+
+.btn-secondary:hover { background: #4b5563; }
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-danger:hover { background: #dc2626; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .appointments-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Optional: subtle message when no valid appointments */
+.no-appointments {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+}
+
+.no-appointments p {
+  font-size: 1.2rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Ensure card minimum content height so they don't look squished */
+.appointment-card {
+  min-height: 220px;          /* prevents very tiny cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body {
+  flex-grow: 1;
+}

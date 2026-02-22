@@ -1,0 +1,212 @@
+.hospitals-page {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* Map */
+.map-section {
+  margin-bottom: 2.5rem;
+}
+
+.leaflet-map {
+  height: 450px !important;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+/* Nearby Hospitals */
+.nearby-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem;
+  color: #0f172a;
+}
+
+.hospital-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.hospital-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.hospital-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hospital-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  color: #1e293b;
+}
+
+.distance {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* Booking Form */
+.booking-section {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  margin-bottom: 2.5rem;
+}
+
+.booking-section h2 {
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #475569;
+}
+
+.selected-hospital {
+  padding: 0.9rem;
+  background: #f1f5f9;
+  border-radius: 8px;
+  font-weight: 500;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+input[type="date"],
+input[type="time"] {
+  padding: 0.9rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-select {
+  background: #3b82f6;
+  color: white;
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.btn-select:hover { background: #2563eb; }
+
+.btn-book {
+  background: #10b981;
+  color: white;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.btn-book:hover { background: #059669; }
+
+.btn-confirm {
+  background: #3b82f6;
+  color: white;
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+
+.btn-confirm:hover { background: #2563eb; }
+
+/* Appointments Section */
+.appointments-section h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 1.25rem;
+}
+
+.appointment-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.appointment-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+}
+
+.appointment-card h3 {
+  margin: 0 0 0.75rem;
+  color: #1e293b;
+}
+
+.appointment-card p {
+  margin: 0.4rem 0;
+  color: #475569;
+}
+
+/* Loading & Misc */
+.loading {
+  text-align: center;
+  padding: 6rem 1rem;
+  font-size: 1.3rem;
+  color: #64748b;
+}
+
+.no-data {
+  text-align: center;
+  color: #64748b;
+  font-size: 1.1rem;
+  padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hospitals-page { padding: 1rem; }
+  .leaflet-map { height: 350px !important; }
+}

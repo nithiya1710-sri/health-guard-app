@@ -1,0 +1,460 @@
+/* ==========================================================================
+   GLOBAL RESET & BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; /* Modern, readable font */
+  background: #f8fafc; /* Very light cool gray – calming */
+  color: #1e293b; /* Slate dark for text */
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1, h2, h3 {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.title {
+  font-size: clamp(1.5rem, 5vw, 1.875rem); /* Responsive scaling */
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   CENTERED AUTH / FORM CARD (Login, Signup, Complete Profile)
+   ========================================================================== */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%); /* Soft medical blue gradient */
+}
+
+.card {
+  background: white;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ==========================================================================
+   FORM ELEMENTS
+   ========================================================================== */
+.input,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 0.75rem 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.button {
+  width: 100%;
+  padding: 14px;
+  margin: 1rem 0 0.5rem;
+  border: none;
+  border-radius: 10px;
+  background: #3b82f6; /* Trustworthy blue */
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.googleBtn {
+  background: #ef4444; /* Google red */
+}
+
+.googleBtn:hover {
+  background: #dc2626;
+}
+
+.secondaryBtn {
+  background: #6b7280;
+}
+
+.secondaryBtn:hover {
+  background: #4b5563;
+}
+
+/* ==========================================================================
+   DASHBOARD / MAIN APP LAYOUT
+   ========================================================================== */
+.dashboard {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar {
+  background: #3b82f6;
+  color: white;
+  padding: 1rem 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Menu Grid – responsive: 1 column on mobile, 2+ on larger */
+.menu {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.25rem;
+}
+
+.menuBtn {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.menuBtn:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  border-color: #3b82f6;
+}
+
+/* ==========================================================================
+   PROFILE SECTION
+   ========================================================================== */
+.profileImg {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #eff6ff;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   MAP CONTAINER (Leaflet or similar)
+   ========================================================================== */
+.mapContainer {
+  width: 100%;
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+/* ==========================================================================
+   HOSPITAL / LIST VIEW
+   ========================================================================== */
+.list {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  margin-top: 1.5rem;
+}
+
+.listItem {
+  padding: 1rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   SOS BUTTON – High visibility & urgency
+   ========================================================================== */
+.sosBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #ef4444;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.sosBtn:hover {
+  background: #dc2626;
+  transform: scale(1.08);
+  box-shadow: 0 12px 35px rgba(239, 68, 68, 0.5);
+}
+
+.sosBtn:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================================================
+   APPOINTMENTS TABLE – Clean & readable
+   ========================================================================== */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  margin-top: 1.5rem;
+}
+
+.table th,
+.table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table th {
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover {
+  background: #f8fafc;
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS (Mobile-first – already mostly handled)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .card {
+    padding: 3rem;
+  }
+
+  .menu {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .sosBtn {
+    width: 100px;
+    height: 100px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard {
+    padding: 2.5rem 3rem;
+  }
+
+  .mapContainer {
+    height: 500px;
+  }
+}
+/* src/styles/styles.css */
+
+/* Global container */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #1f2937;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 2.2rem 0;
+}
+
+/* Form fields wrapper (optional - for better spacing) */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Labels (optional - add if you want visible labels) */
+.label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+/* All inputs + file input */
+.input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #111827;
+  background: #f9fafb;
+  transition: all 0.2s ease;
+  margin-bottom: 1.2rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background: white;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+/* File input specific styling */
+.input[type="file"] {
+  padding: 0.6rem 1.1rem;
+  background: #f1f5f9;
+  cursor: pointer;
+}
+
+.input[type="file"]::-webkit-file-upload-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: background 0.2s;
+}
+
+.input[type="file"]::-webkit-file-upload-button:hover {
+  background: #2563eb;
+}
+
+/* Button */
+.button {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 1.5rem;
+}
+
+.button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+}
+
+.button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loading state text */
+.button.loading::after {
+  content: "...";
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .card {
+    padding: 2rem 1.4rem;
+  }
+
+  .title {
+    font-size: 1.65rem;
+  }
+
+  .input {
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .button {
+    padding: 0.85rem;
+    font-size: 1rem;
+  }
+}

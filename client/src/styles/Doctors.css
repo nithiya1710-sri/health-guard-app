@@ -1,0 +1,139 @@
+/* Page Layout */
+
+.doctors-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #f5f7fb;
+    font-family: Arial, sans-serif;
+}
+
+
+
+/* Header */
+
+.page-header {
+    text-align: center;
+    padding: 20px;
+    background: #2c7be5;
+    color: white;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.page-header p {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+
+
+/* Filter Box */
+
+.filter-box {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.filter-box label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.filter-box select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+
+/* Map */
+
+.leaflet-map {
+    width: 90%;
+    height: 400px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+
+
+/* Doctor Section */
+
+.doctor-list-section {
+    width: 90%;
+    margin: 20px auto;
+}
+
+
+
+.doctor-list-section h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+
+
+/* Doctor List */
+
+.doctor-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 15px;
+}
+
+
+
+/* Doctor Card */
+
+.doctor-card {
+
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.08);
+
+    transition: 0.2s;
+
+}
+
+
+
+.doctor-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0px 6px 14px rgba(0,0,0,0.15);
+
+}
+
+
+
+/* Loading */
+
+.loading {
+
+    text-align: center;
+
+    margin-top: 200px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #444;
+
+}

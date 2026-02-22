@@ -1,0 +1,214 @@
+/* src/styles/CompleteProfile.css */
+
+/* ────────────────────────────────────────────────
+   Main Layout & Background
+───────────────────────────────────────────────── */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #1f2937;
+}
+
+/* ────────────────────────────────────────────────
+   Card Container
+───────────────────────────────────────────────── */
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ────────────────────────────────────────────────
+   Title
+───────────────────────────────────────────────── */
+.title {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 2.2rem 0;
+}
+
+/* ────────────────────────────────────────────────
+   Form Groups & Labels
+───────────────────────────────────────────────── */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+.label.required::after {
+  content: " *";
+  color: #ef4444;
+  font-size: 0.95rem;
+}
+
+/* ────────────────────────────────────────────────
+   Inputs & Select
+───────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #111827;
+  background: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background: white;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+/* File input styling */
+.input[type="file"] {
+  padding: 0.6rem;
+  background: #f1f5f9;
+  cursor: pointer;
+}
+
+.input[type="file"]::-webkit-file-upload-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: background 0.2s;
+}
+
+.input[type="file"]::-webkit-file-upload-button:hover {
+  background: #2563eb;
+}
+
+/* Select dropdown arrow */
+select.input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8.825L1.175 4 2.4 2.775 6 6.375l3.6-3.6L10.825 4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+}
+
+/* ────────────────────────────────────────────────
+   Avatar Preview
+───────────────────────────────────────────────── */
+.avatar-preview {
+  text-align: center;
+  margin: 0 auto 1.8rem auto;
+}
+
+.preview-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ────────────────────────────────────────────────
+   Button
+───────────────────────────────────────────────── */
+.button {
+  width: 100%;
+  padding: 0.95rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 1.8rem;
+}
+
+.button:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+}
+
+.button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ────────────────────────────────────────────────
+   Responsive Adjustments
+───────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .input {
+    font-size: 0.97rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .preview-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .button {
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+}
+.help-text {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Optional: make labels consistent if needed */
+.form-group label {
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 6px;
+  display: block;
+}
